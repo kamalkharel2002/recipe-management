@@ -17,7 +17,6 @@
     "target": "ES2022",
     "module": "ES2022",
     "baseUrl": ".",
-    "ignoreDeprecations": "6.0",
      "paths": {
       "@core/*": ["src/lib/core/*"],
       "@shared/*": ["src/lib/shared/*"],
