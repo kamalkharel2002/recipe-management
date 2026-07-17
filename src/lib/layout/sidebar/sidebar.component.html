@@ -1,0 +1,16 @@
+<nav class="w-56 h-full border-r bg-white app-dark:bg-neutral-900 p-4">
+  <ul class="flex flex-col gap-1">
+    @for (link of links; track link.path) {
+      <li>
+        <a
+          [routerLink]="link.path"
+          routerLinkActive="bg-green-50 text-green-700 font-medium app-dark:bg-green-950"
+          class="flex items-center gap-2 px-3 py-2 rounded-md text-sm hover:bg-neutral-100 app-dark:hover:bg-neutral-800"
+        >
+          <i [class]="link.icon"></i>
+          {{ link.label }}
+        </a>
+      </li>
+    }
+  </ul>
+</nav>
