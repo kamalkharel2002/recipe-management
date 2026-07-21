@@ -8,7 +8,6 @@
       [text]="true"
       (onClick)="theme.toggle()"
     />
-    <!-- Logout button will be wired to AuthService in the auth-feature part -->
-    <p-button label="Logout" icon="pi pi-sign-out" [text]="true" />
+     <p-button label="Logout" icon="pi pi-sign-out" [text]="true" (onClick)="logout()" />
   </div>
 </header>
