@@ -14,11 +14,7 @@ export const routes: Routes = [
       import('@layout/main-layout/main-layout.component').then((m) => m.MainLayoutComponent),
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      {
-        path: 'dashboard',
-        loadComponent: () =>
-          import('@layout/header/header.component').then((m) => m.HeaderComponent),
-      }, // still a placeholder — replaced in the dashboard part
+      { path: 'dashboard', loadComponent: () => import('@features/recipes/containers/recipe-form/recipe-form.component').then(m => m.RecipeFormComponent) },
     ],
   },
   {
