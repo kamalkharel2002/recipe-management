@@ -1,0 +1,19 @@
+<div class="flex flex-col gap-3">
+  <label class="text-sm font-medium">Preparation Steps</label>
+
+  @for (step of steps.controls; track $index) {
+    <div class="flex gap-2 items-center">
+      <span class="text-sm text-neutral-400 w-6">{{ $index + 1 }}.</span>
+      <input pInputText [formControl]="asControl(step)" placeholder="Describe this step" class="flex-1" />
+      <p-button icon="pi pi-arrow-up" [text]="true" (onClick)="moveUp($index)" [disabled]="$index === 0" />
+      <p-button icon="pi pi-arrow-down" [text]="true" (onClick)="moveDown($index)" [disabled]="$index === steps.length - 1" />
+      <p-button icon="pi pi-trash" severity="danger" [text]="true" (onClick)="remove($index)" [disabled]="steps.length <= 1" />
+    </div>
+  }
+
+  @if (steps.hasError('minArrayLength')) {
+    <small class="text-red-600">At least one step is required.</small>
+  }
+
+  <p-button label="Add Step" icon="pi pi-plus" [text]="true" (onClick)="add()" styleClass="self-start" />
+</div>

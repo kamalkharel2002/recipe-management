@@ -1,0 +1,18 @@
+<div class="flex flex-col gap-3">
+  <label class="text-sm font-medium">Ingredients</label>
+
+  @for (ingredientGroup of ingredients.controls; track $index) {
+    <div [formGroup]="asGroup(ingredientGroup)" class="flex gap-2 items-start">
+      <input pInputText formControlName="name" placeholder="Ingredient name" class="flex-1" />
+      <p-inputNumber formControlName="quantity" placeholder="Qty" [min]="0.1" Class="w-24" />
+      <input pInputText formControlName="unit" placeholder="unit" class="w-24" />
+      <p-button icon="pi pi-trash" severity="danger" [text]="true" (onClick)="remove($index)" [disabled]="ingredients.length <= 1" />
+    </div>
+  }
+
+  @if (ingredients.hasError('minArrayLength')) {
+    <small class="text-red-600">At least one ingredient is required.</small>
+  }
+
+  <p-button label="Add Ingredient" icon="pi pi-plus" [text]="true" (onClick)="add()" styleClass="self-start" />
+</div>
