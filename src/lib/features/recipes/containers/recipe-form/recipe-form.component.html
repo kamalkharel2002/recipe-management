@@ -23,9 +23,20 @@
   <app-ingredient-form [ingredients]="ingredients" />
   <app-step-form [steps]="steps" />
 
-  <p-button
-    type="submit"
-    [label]="recipeId != null ? 'Update Recipe' : 'Create Recipe'"
-    [loading]="saving()"
+  <div class="flex flex-col gap-1">
+  <label class="text-sm font-medium">Tags</label>
+  <p-multiSelect
+    formControlName="tags"
+    [options]="tagOptions"
+    placeholder="Select tags"
+    styleClass="w-full"
   />
+</div>
+
+<p-button
+  type="submit"
+  [label]="recipeId != null ? 'Update Recipe' : 'Create Recipe'"
+  [loading]="saving()"
+/>
+
 </form>
