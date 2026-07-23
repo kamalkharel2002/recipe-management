@@ -1,0 +1,32 @@
+<div class="flex flex-col gap-4 max-w-lg">
+  <div class="flex justify-between items-center">
+    <h1 class="text-xl font-semibold">Tags</h1>
+    <a routerLink="/tags/create">
+      <p-button label="New Tag" icon="pi pi-plus" />
+    </a>
+  </div>
+
+  @if (loading()) {
+    <div class="flex justify-center py-12">
+      <i class="pi pi-spin pi-spinner text-3xl text-neutral-400"></i>
+    </div>
+  } @else if (tags().length === 0) {
+    <div class="text-center py-12 text-neutral-500">
+      <p>No tags yet — add your first one!</p>
+    </div>
+  } @else {
+    <div class="flex flex-col">
+      @for (tag of tags(); track tag.id) {
+        <app-tag-list-item [tag]="tag" (deleteRequested)="requestDelete($event)" />
+      }
+    </div>
+  }
+</div>
+
+<app-tag-delete-dialog
+  [tag]="tagToDelete()"
+  [checking]="checkingUsage()"
+  [blocked]="deleteBlocked()"
+  (confirmed)="confirmDelete()"
+  (cancelled)="cancelDelete()"
+/>

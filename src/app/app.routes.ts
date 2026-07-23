@@ -32,6 +32,11 @@ export const routes: Routes = [
             (m) => m.recipesRoutes,
           ),
       },
+      {
+        path: 'tags',
+        loadChildren: () =>
+          import('@features/tags/tags.routes').then((m) => m.tagsRoutes),
+      },
     ],
   },
   {
