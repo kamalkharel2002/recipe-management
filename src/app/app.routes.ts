@@ -5,16 +5,33 @@ export const routes: Routes = [
   {
     path: 'login',
     loadChildren: () =>
-      import('@features/authentication/authentication.routes').then((m) => m.authenticationRoutes),
+      import('@features/authentication/authentication.routes').then(
+        (m) => m.authenticationRoutes,
+      ),
   },
   {
     path: '',
     canActivate: [authGuard],
     loadComponent: () =>
-      import('@layout/main-layout/main-layout.component').then((m) => m.MainLayoutComponent),
+      import('@layout/main-layout/main-layout.component').then(
+        (m) => m.MainLayoutComponent,
+      ),
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-      { path: 'dashboard', loadComponent: () => import('@features/recipes/containers/recipe-form/recipe-form.component').then(m => m.RecipeFormComponent) },
+      {
+        path: 'dashboard',
+        loadComponent: () =>
+          import('@layout/header/header.component').then(
+            (m) => m.HeaderComponent,
+          ),
+      },
+      {
+        path: 'recipes',
+        loadChildren: () =>
+          import('@features/recipes/recipes.routes').then(
+            (m) => m.recipesRoutes,
+          ),
+      },
     ],
   },
   {

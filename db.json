@@ -7,6 +7,49 @@
       "password": "password123"
     }
   ],
-  "recipes": [],
+  "recipes": [
+    {
+      "title": "Ema Datshi",
+      "description": "A traditional Bhutanese dish made with spicy chilies cooked in a creamy cheese sauce.",
+      "cookTime": 20,
+      "servings": 2,
+      "imageUrl": "",
+      "tags": [],
+      "ingredients": [
+        {
+          "name": "Chilli peppers",
+          "quantity": 5,
+          "unit": "pieces"
+        },
+        {
+          "name": "Cheese",
+          "quantity": 200,
+          "unit": "grams"
+        },
+        {
+          "name": "Onion",
+          "quantity": 1,
+          "unit": "piece"
+        },
+        {
+          "name": "Tomato ",
+          "quantity": 1,
+          "unit": "piece"
+        },
+        {
+          "name": "Garlic",
+          "quantity": 2,
+          "unit": "cloves"
+        }
+      ],
+      "steps": [
+        "Chop chilies, onions, tomato, and garlic",
+        "Cook vegetables with water until soft",
+        "Add cheese and close it until melted",
+        "Serve hot with rice. "
+      ],
+      "id": 1
+    }
+  ],
   "tags": []
 }
