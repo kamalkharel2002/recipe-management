@@ -24,7 +24,7 @@ export class RecipeService{
   }
 
   update(id: number, draft: RecipeDraft): Observable<Recipe>{
-    return this.http.post<Recipe>(`${this.baseurl}/${id}`, draft);
+    return this.http.put<Recipe>(`${this.baseurl}/${id}`, draft);
   }
 
   delete(id: number): Observable<void>{

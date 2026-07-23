@@ -1,0 +1,33 @@
+<p-card styleClass="h-full flex flex-col">
+  <ng-template pTemplate="header">
+    @if (recipe.imageUrl) {
+      <img [src]="recipe.imageUrl" [alt]="recipe.title" class="w-full h-40 object-cover" />
+    }
+  </ng-template>
+
+  <div class="flex flex-col gap-2">
+    <h3 class="text-lg font-semibold">{{ recipe.title }}</h3>
+    <p class="text-sm text-neutral-500 line-clamp-2">{{ recipe.description }}</p>
+
+    <div class="flex gap-2 flex-wrap">
+      @for (tag of recipe.tags; track tag) {
+        <p-tag [value]="tag" severity="success" />
+      }
+    </div>
+
+    <div class="flex justify-between text-sm text-neutral-500 mt-2">
+      <span>{{ recipe.cookTime | cookTimeFormat }}</span>
+      <span>{{ recipe.servings }} servings</span>
+    </div>
+
+    <div class="flex gap-2 mt-3">
+      <a [routerLink]="['/recipes', recipe.id]" class="flex-1">
+        <p-button label="View" [text]="true" styleClass="w-full" />
+      </a>
+      <a [routerLink]="['/recipes/edit', recipe.id]">
+        <p-button icon="pi pi-pencil" [text]="true" />
+      </a>
+      <p-button icon="pi pi-trash" severity="danger" [text]="true" (onClick)="deleteRequested.emit(recipe)" />
+    </div>
+  </div>
+</p-card>

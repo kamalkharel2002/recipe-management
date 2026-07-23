@@ -4,7 +4,7 @@
   @for (ingredientGroup of ingredients.controls; track $index) {
     <div [formGroup]="asGroup(ingredientGroup)" class="flex gap-2 items-start">
       <input pInputText formControlName="name" placeholder="Ingredient name" class="flex-1" />
-      <p-inputNumber formControlName="quantity" placeholder="Qty" [min]="0.1" Class="w-24" />
+      <p-inputNumber formControlName="quantity" placeholder="Qty" [min]="0.1" class="w-full" inputStyleClass="w-full" />
       <input pInputText formControlName="unit" placeholder="unit" class="w-24" />
       <p-button icon="pi pi-trash" severity="danger" [text]="true" (onClick)="remove($index)" [disabled]="ingredients.length <= 1" />
     </div>
